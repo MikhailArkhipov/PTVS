@@ -1587,6 +1587,15 @@ namespace Microsoft.PythonTools {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configuration file already exists in this folder..
+        /// </summary>
+        public static string ConfigFileAlreadyExists {
+            get {
+                return ResourceManager.GetString("ConfigFileAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Apply.
         /// </summary>
         public static string ConfigurationExtensionApplyLabel {

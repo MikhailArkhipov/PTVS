@@ -29,7 +29,7 @@
     <Asset Type="Microsoft.VisualStudio.Assembly" Path="|Microsoft.PythonTools.Debugger;_GetTargetPath|" AssemblyName="|Microsoft.PythonTools.Debugger;_GetAssemblyName|" />
     <Asset Type="Microsoft.VisualStudio.Assembly" Path="|Microsoft.PythonTools.Debugger.Concord;_GetTargetPath|" AssemblyName="|Microsoft.PythonTools.Debugger.Concord;_GetAssemblyName|" />
     <Asset Type="Microsoft.VisualStudio.Assembly" Path="|Microsoft.PythonTools.EnvironmentsList;_GetTargetPath|" AssemblyName="|Microsoft.PythonTools.EnvironmentsList;_GetAssemblyName|" />
-    <Asset Type="Microsoft.VisualStudio.Assembly" Path="|Microsoft.PythonTools.VSCommon;_GetTargetPath|" AssemblyName="|Microsoft.PythonTools.VSCommon;_GetAssemblyName|" />
+	<Asset Type="Microsoft.VisualStudio.Assembly" Path="|Microsoft.PythonTools.VSCommon;_GetTargetPath|" AssemblyName="|Microsoft.PythonTools.VSCommon;_GetAssemblyName|" />
     <Asset Type="Microsoft.VisualStudio.Assembly" Path="|Microsoft.PythonTools.VSInterpreters;_GetTargetPath|" AssemblyName="|Microsoft.PythonTools.VSInterpreters;_GetAssemblyName|" />
     <Asset Type="Microsoft.VisualStudio.Assembly" Path="|Microsoft.PythonTools.Workspace;_GetTargetPath|" AssemblyName="|Microsoft.PythonTools.Workspace;_GetAssemblyName|" />
     <Asset Type="Microsoft.VisualStudio.MefComponent" Path="|Microsoft.PythonTools;_GetTargetPath|" />
@@ -40,9 +40,10 @@
     <Asset Type="DebuggerEngineExtension" Path="DkmDebugger.vsdconfig" />
     <Asset Type="NativeVisualizer" Path="Visualizers\PythonDkm.natvis" />
     <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Newtonsoft.Json.dll" />
-    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Microsoft.Python.Core.dll" />
+	<Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Microsoft.Python.Core.dll" />
     <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Microsoft.Python.Parsing.dll" />
     <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Microsoft.PythonTools.Ipc.Json.dll" />
     <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Microsoft.PythonTools.Attacher.exe" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="Microsoft.PythonTools.ProjectWizards.dll" />
   </Assets>
 </PackageManifest>

@@ -69,6 +69,10 @@
       <Project>{e1e1613d-0c96-42f9-9f2d-052c72533297}</Project>
       <Name>Ipc.Json</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectWizards\ProjectWizards.csproj">
+      <Project>{3814d9db-10e6-4478-bd98-6c5840612af8}</Project>
+      <Name>ProjectWizards</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PythonTools\PythonTools.csproj">
       <Project>{fa7be5f5-e04f-4613-b7ac-70ce10d1bb68}</Project>
       <Name>Microsoft.PythonTools</Name>
@@ -104,10 +108,6 @@
     </ProjectReference2>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Templates\NewItem\mspythonconfig.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <VSIXSubPath>Templates\NewItem</VSIXSubPath>
-    </Content>
     <Content Include="Templates\NewItem\NewFileItems.vsdir">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <VSIXSubPath>Templates\NewItem</VSIXSubPath>
@@ -120,7 +120,11 @@
     </Content>
     <Content Include="License_en-US.rtf" />
     <Content Include="$(PackagesPath)\Newtonsoft.Json\lib\net45\Newtonsoft.Json.dll" />
-    <Content Include="$(PackagesPath)\Microsoft.VisualStudio.LanguageServer.Protocol\lib\netstandard2.0\Microsoft.VisualStudio.LanguageServer.Protocol.dll" /> 
+    <Content Include="$(PackagesPath)\Microsoft.VisualStudio.LanguageServer.Protocol\lib\netstandard2.0\Microsoft.VisualStudio.LanguageServer.Protocol.dll" />
+    <Content Include="Templates\NewItem\mspythonconfig.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <VSIXSubPath>Templates\NewItem</VSIXSubPath>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Core\ProvideRawCodeBaseAttribute.cs">
@@ -152,9 +156,5 @@
       <FileWrites Include="@(LanguageServerFiles)" />
     </ItemGroup>
   </Target>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties templates_4newitem_4mspythonconfig_1json__JsonSchema="" />
-    </VisualStudio>
-  </ProjectExtensions>
+  <ProjectExtensions />
 </Project>
