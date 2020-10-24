@@ -15,6 +15,7 @@
 // permissions and limitations under the License.
 
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using Microsoft.PythonTools.Common.Infrastructure;
@@ -22,41 +23,36 @@ using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Editor;
 
 namespace Microsoft.PythonTools.Pylance.Settings {
-    internal sealed class EditorMargin : IWpfTextViewMargin {
+    internal sealed class EditorMargin : Border, IWpfTextViewMargin {
         private readonly DisposableBag _disposables = new DisposableBag(nameof(EditorMargin));
+        private readonly IWpfTextViewHost _wpfTextViewHost;
         private readonly ITextBuffer _tb;
         private readonly ConfigProperties _properties;
-        private readonly PropertyGrid _grid;
         private readonly WindowsFormsHost _host;
 
+        private PropertyGrid _grid;
+
         public EditorMargin(IWpfTextViewHost wpfTextViewHost, IWpfTextViewMargin marginContainer) {
+            _wpfTextViewHost = wpfTextViewHost;
             _tb = wpfTextViewHost.TextView.TextBuffer;
             _properties = new ConfigProperties();
-            _grid = new PropertyGrid();
 
-            _host = new WindowsFormsHost() { 
-                HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch 
+            _host = new WindowsFormsHost() {
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch,
             };
-            _host.Loaded += OnHostLoaded;
+            _host.Width = MarginSize;
+            _grid = new PropertyGrid();
+            _grid.Width = (int)MarginSize;
 
-            _disposables
-                .Add(() => {
-                    _host.Loaded -= OnHostLoaded;
-                })
-                .Add(_host)
-                .Add(_grid);
-
-            _grid.Refresh();
-            VisualElement = _host;
-        }
-
-        private void OnHostLoaded(object sender, RoutedEventArgs e) {
             _host.Child = _grid;
+            Child = _host;
+
+            _disposables.Add(_host).Add(_grid);
             _grid.SelectedObject = _properties;
         }
 
         #region IWpfTextViewMargin
-        public FrameworkElement VisualElement { get; }
+        public FrameworkElement VisualElement => this;
         public double MarginSize => 400;
         public bool Enabled => true;
         public void Dispose() => _disposables.TryDispose();

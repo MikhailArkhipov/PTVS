@@ -35,7 +35,7 @@ namespace Microsoft.PythonTools.Pylance.Settings {
             if (!string.IsNullOrEmpty(filePath)) {
                 var fileName = Path.GetFileName(filePath);
                 if (string.Equals(fileName, "mspythonconfig.json", StringComparison.OrdinalIgnoreCase)) {
-                    margin = tv.Properties.GetOrCreateSingletonProperty(()
+                    margin = tv.Properties.GetOrCreateSingletonProperty(GetType().Name, ()
                         => new EditorMargin(wpfTextViewHost, marginContainer));
                 }
             }
