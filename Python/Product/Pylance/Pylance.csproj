@@ -241,6 +241,17 @@
       <Link>ProvideRawCodeBaseAttribute.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\Attributes\EnumTypeConverter.cs" />
+    <Compile Include="Settings\Attributes\LocCategoryAttribute.cs" />
+    <Compile Include="Settings\Attributes\LocDefaultValueAttribute.cs" />
+    <Compile Include="Settings\Attributes\LocDescriptionAttribute.cs" />
+    <Compile Include="Settings\Attributes\LocDisplayNameAttribute.cs" />
+    <Compile Include="Settings\Attributes\TypeCheckingModeTypeConverter.cs" />
+    <Compile Include="Settings\ConfigProperties.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\EditorMargin.cs" />
+    <Compile Include="Settings\EditorMarginProvider.cs" />
     <Compile Include="Settings\SchemaSelector.cs" />
   </ItemGroup>
   <ItemGroup>
