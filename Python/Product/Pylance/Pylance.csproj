@@ -8,7 +8,7 @@
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft</RootNamespace>
+    <RootNamespace>Microsoft.PythonTools.Pylance</RootNamespace>
     <AssemblyName>Microsoft.PythonTools.Pylance</AssemblyName>
     <ProjectGuid>{E2AE38B1-6C26-417E-A898-1A971E0E8C7A}</ProjectGuid>
     <UseVSSDK>true</UseVSSDK>
@@ -34,14 +34,24 @@
     <NoWarn>436;1998;2008;67</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.CoreUtility, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell.15.0" />
     <Reference Include="Microsoft.VisualStudio.Shell.Framework" />
+    <Reference Include="Microsoft.VisualStudio.Text.Data, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Text.UI, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Text.UI.Wpf, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.WebTools.Languages.Json, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\References\Dev16.0\Microsoft.WebTools.Languages.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemDefinitionGroup>
     <ProjectReference>
@@ -247,12 +257,11 @@
     <Compile Include="Settings\Attributes\LocDescriptionAttribute.cs" />
     <Compile Include="Settings\Attributes\LocDisplayNameAttribute.cs" />
     <Compile Include="Settings\Attributes\TypeCheckingModeTypeConverter.cs" />
-    <Compile Include="Settings\ConfigProperties.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Settings\ConfigProperties.cs" />
     <Compile Include="Settings\EditorMargin.cs" />
     <Compile Include="Settings\EditorMarginProvider.cs" />
     <Compile Include="Settings\SchemaSelector.cs" />
+    <Compile Include="Settings\TextBufferExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pylance\" />

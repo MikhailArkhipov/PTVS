@@ -16,7 +16,6 @@
 
 using System.ComponentModel;
 using Microsoft.PythonTools.Pylance.Settings.Attributes;
-using Microsoft.VisualStudio.Shell;
 
 namespace Microsoft.PythonTools.Pylance.Settings {
     internal enum TypeCheckingMode {
@@ -25,7 +24,7 @@ namespace Microsoft.PythonTools.Pylance.Settings {
         Strict
     }
 
-    internal sealed class ConfigProperties: DialogPage {
+    internal sealed class ConfigProperties {
         [LocCategory(nameof(Strings.ConfigSettings_TypeCheckingCategory))]
         [CustomLocDisplayName(nameof(Strings.ConfigSettings_TypeCheckingMode))]
         [LocDescription(nameof(Strings.ConfigSettings_TypeCheckingMode_Description))]

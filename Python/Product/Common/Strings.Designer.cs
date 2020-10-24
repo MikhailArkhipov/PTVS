@@ -1596,6 +1596,60 @@ namespace Microsoft.PythonTools {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string ConfigSettings_GeneralCategory {
+            get {
+                return ResourceManager.GetString("ConfigSettings_GeneralCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type checking.
+        /// </summary>
+        public static string ConfigSettings_TypeCheckingCategory {
+            get {
+                return ResourceManager.GetString("ConfigSettings_TypeCheckingCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mode.
+        /// </summary>
+        public static string ConfigSettings_TypeCheckingMode {
+            get {
+                return ResourceManager.GetString("ConfigSettings_TypeCheckingMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specifies the default rule set to use for type checking..
+        /// </summary>
+        public static string ConfigSettings_TypeCheckingMode_Description {
+            get {
+                return ResourceManager.GetString("ConfigSettings_TypeCheckingMode_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use library code for types.
+        /// </summary>
+        public static string ConfigSettings_UseLibraryCodeForTypes {
+            get {
+                return ResourceManager.GetString("ConfigSettings_UseLibraryCodeForTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use library implementations to extract type information when type stub is not present..
+        /// </summary>
+        public static string ConfigSettings_UseLibraryCodeForTypes_Description {
+            get {
+                return ResourceManager.GetString("ConfigSettings_UseLibraryCodeForTypes_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _Apply.
         /// </summary>
         public static string ConfigurationExtensionApplyLabel {

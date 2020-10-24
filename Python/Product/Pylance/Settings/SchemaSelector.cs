@@ -23,7 +23,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.WebTools.Languages.Json.Schema;
 
-namespace Microsoft.Settings {
+namespace Microsoft.PythonTools.Pylance.Settings {
     [Export(typeof(IJsonSchemaSelector))]
     internal sealed class SchemaSelector : IJsonSchemaSelector {
 #pragma warning disable 0067

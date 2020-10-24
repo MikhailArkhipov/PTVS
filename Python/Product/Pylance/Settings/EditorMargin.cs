@@ -17,31 +17,50 @@
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
+using Microsoft.PythonTools.Common.Infrastructure;
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Editor;
 
 namespace Microsoft.PythonTools.Pylance.Settings {
     internal sealed class EditorMargin : IWpfTextViewMargin {
+        private readonly DisposableBag _disposables = new DisposableBag(nameof(EditorMargin));
         private readonly ITextBuffer _tb;
-        private readonly PropertyGrid _grid;
         private readonly ConfigProperties _properties;
+        private readonly PropertyGrid _grid;
+        private readonly WindowsFormsHost _host;
 
         public EditorMargin(IWpfTextViewHost wpfTextViewHost, IWpfTextViewMargin marginContainer) {
             _tb = wpfTextViewHost.TextView.TextBuffer;
             _properties = new ConfigProperties();
             _grid = new PropertyGrid();
-            _grid.SelectedObject = _properties;
 
-            var host = new WindowsFormsHost();
-            host.Child = _grid;
-            VisualElement = host;
+            _host = new WindowsFormsHost() { 
+                HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch 
+            };
+            _host.Loaded += OnHostLoaded;
+
+            _disposables
+                .Add(() => {
+                    _host.Loaded -= OnHostLoaded;
+                })
+                .Add(_host)
+                .Add(_grid);
+
+            _grid.Refresh();
+            VisualElement = _host;
         }
 
-        public FrameworkElement VisualElement { get; }
+        private void OnHostLoaded(object sender, RoutedEventArgs e) {
+            _host.Child = _grid;
+            _grid.SelectedObject = _properties;
+        }
 
-        public double MarginSize => 500;
+        #region IWpfTextViewMargin
+        public FrameworkElement VisualElement { get; }
+        public double MarginSize => 400;
         public bool Enabled => true;
-        public void Dispose() {}
+        public void Dispose() => _disposables.TryDispose();
         public ITextViewMargin GetTextViewMargin(string marginName) => this;
+        #endregion
     }
 }

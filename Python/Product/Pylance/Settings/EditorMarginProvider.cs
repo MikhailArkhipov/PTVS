@@ -16,7 +16,7 @@
 
 using System;
 using System.ComponentModel.Composition;
-using Microsoft.VisualStudio.Text;
+using System.IO;
 using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.Utilities;
 
@@ -29,10 +29,17 @@ namespace Microsoft.PythonTools.Pylance.Settings {
     [TextViewRole(PredefinedTextViewRoles.Debuggable)] // This is to prevent the margin from loading in the diff view
     internal sealed class EditorMarginProvider : IWpfTextViewMarginProvider {
         public IWpfTextViewMargin CreateMargin(IWpfTextViewHost wpfTextViewHost, IWpfTextViewMargin marginContainer) {
-            var textDoc = wpfTextViewHost.TextView.TextBuffer as ITextDocument;
-            return string.Equals(textDoc?.FilePath, "mspythonconfig.json", StringComparison.OrdinalIgnoreCase) 
-                ? new EditorMargin(wpfTextViewHost, marginContainer) 
-                : null;
+            IWpfTextViewMargin margin = null;
+            var tv = wpfTextViewHost.TextView;
+            var filePath = tv.TextBuffer.GetFileName();
+            if (!string.IsNullOrEmpty(filePath)) {
+                var fileName = Path.GetFileName(filePath);
+                if (string.Equals(fileName, "mspythonconfig.json", StringComparison.OrdinalIgnoreCase)) {
+                    margin = tv.Properties.GetOrCreateSingletonProperty(()
+                        => new EditorMargin(wpfTextViewHost, marginContainer));
+                }
+            }
+            return margin;
         }
     }
 }

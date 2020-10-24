@@ -3041,4 +3041,22 @@ Please specify at least one package.</value>
   <data name="ConfigFileAlreadyExists" xml:space="preserve">
     <value>Type checker configuration file already exists in this folder.</value>
   </data>
+  <data name="ConfigSettings_GeneralCategory" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="ConfigSettings_TypeCheckingCategory" xml:space="preserve">
+    <value>Type checking</value>
+  </data>
+  <data name="ConfigSettings_TypeCheckingMode" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="ConfigSettings_TypeCheckingMode_Description" xml:space="preserve">
+    <value>Specifies the default rule set to use for type checking.</value>
+  </data>
+  <data name="ConfigSettings_UseLibraryCodeForTypes" xml:space="preserve">
+    <value>Use library code for types</value>
+  </data>
+  <data name="ConfigSettings_UseLibraryCodeForTypes_Description" xml:space="preserve">
+    <value>Use library implementations to extract type information when type stub is not present.</value>
+  </data>
 </root>

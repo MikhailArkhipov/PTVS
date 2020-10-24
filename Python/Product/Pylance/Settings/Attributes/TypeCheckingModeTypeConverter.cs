@@ -16,9 +16,7 @@
 
 namespace Microsoft.PythonTools.Pylance.Settings.Attributes {
     internal class TypeCheckingModeTypeConverter : EnumTypeConverter<TypeCheckingMode> {
-        public TypeCheckingModeTypeConverter() 
-            : base(Strings.ConfigSettings_TypeCheckingMode_Off, 
-                   Strings.ConfigSettings_TypeCheckingMode_Basic, 
-                   Strings.ConfigSettings_TypeCheckingMode_Strict) {}
+        public TypeCheckingModeTypeConverter()
+            : base(Strings.TypeCheckingModeOff, Strings.TypeCheckingModeBasic, Strings.TypeCheckingModeStrict) { }
     }
 }
